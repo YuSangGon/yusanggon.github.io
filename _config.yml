@@ -46,7 +46,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   yusanggon's web developer blog
 
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "yusanggon.github.io" # the base hostname & protocol for your site, e.g. https://example.com
+url: "https://yusanggon.github.io" # the base hostname & protocol for your site, e.g. https://example.com
 favicon: "" # the favicon for your site
 
 # Yat date format
