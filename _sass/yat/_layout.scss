@@ -631,7 +631,7 @@ html {
         @include relative-font-size(3.9);
         letter-spacing: -1px;
         margin-bottom: 0.1em;
-        font-weight: normal;
+        font-weight: bold;
         transition: 0.2s all;
 
         @include media-query($on-palm) {
@@ -640,7 +640,7 @@ html {
       }
 
       > :nth-child(2) {
-        font-weight: normal;
+        font-weight: bold;
         margin-bottom: 0.8em;
         transition: 0.2s all;
 
