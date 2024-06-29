@@ -23,7 +23,7 @@ $white-color: #fdfdfd !default;
 $table-text-align: left !default;
 
 $header-height: $base-line-height * $base-font-size * 2.85 !default;
-$header-text-color: invert($theme-color) !default;
+$header-text-color: invert($theme-color);
 $header-background-color: $theme-color !default;
 
 $footer-height: $header-height * 1.05 !default;
@@ -32,7 +32,7 @@ $footer-background-color: darken($theme-color, 5%) !default;
 
 $banner-height: 640px !default;
 // $banner-text-color: lighten($white-color, 0%) !default;
-$banner-text-color: $text-color;
+$banner-text-color: $theme-color;
 $banner-background: rgba(0,0,0,0.8) !default;
 
 // Width of the content area
