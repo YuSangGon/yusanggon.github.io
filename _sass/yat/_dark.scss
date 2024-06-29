@@ -8,6 +8,7 @@ html[data-theme="dark"]  {
         @include media-query($on-laptop) {
           .page-link {
             color: #090a0b;
+            font-weight: bold;
           }
         }
       }
