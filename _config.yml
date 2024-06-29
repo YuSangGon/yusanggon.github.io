@@ -71,6 +71,7 @@ google_analytics: 'G-EZR6RCKBKR'
 
 # If you want to generate website sitemap, you can set true
 # sitemap: false
+sitemap: true
 
 # If you want to change site language, you can set lang option
 # lang: "en"  # default lang is en
@@ -110,6 +111,7 @@ lang: "ko"
 # snowwhite: #ffffff
 #
 # theme_color: snowwhite
+theme_color : coolblack
 #
 # Custom color as below:
 # theme_color: "#882250"
