@@ -99,6 +99,6 @@ Table 은 규칙(Rule)들의 그룹이라고 하였는데 그 규칙이 바로 �
 <br>
 
 # Reference
-[https://data-flair.training/blogs/what-are-iptables-in-linux/](https://data-flair.training/blogs/what-are-iptables-in-linux/)
-[https://andrewpage.tistory.com/38](https://andrewpage.tistory.com/38)
+[https://data-flair.training/blogs/what-are-iptables-in-linux/](https://data-flair.training/blogs/what-are-iptables-in-linux/)<br>
+[https://andrewpage.tistory.com/38](https://andrewpage.tistory.com/38)<br>
 [https://m.blog.naver.com/skauter/220052866346](https://m.blog.naver.com/skauter/220052866346)
