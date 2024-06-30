@@ -77,7 +77,7 @@ iptables [-t table] -Options [chain] [matching options] [action]
 
 # iptable 의 기본 정책 설정
 
-```shell
+```
 iptables --pulish INPUT DROP
 iptables --pulish OUTPUT DROP
 iptables --pulish FORWARD DROP
@@ -87,7 +87,7 @@ INPUT, OUPUT, FORWARD 에 대한 모든 traffic 을 막습니다. 반대로 허�
 
 
 # 특정 IP 주소 막기
-```shell
+```
 iptables -A INPUT -s 192.268.07.23 -j DROP
 ```
 
@@ -95,7 +95,7 @@ iptables -A INPUT -s 192.268.07.23 -j DROP
 
 
 # 특정 port 에 대한 traffic 막기
-```shell
+```
 iptables -A OUTPUT -p tcp --dport 22 -j DROP
 ```
 
@@ -103,7 +103,7 @@ destination 의 port 가 22 인 것은 DROP 합니다. 반대로 ACCEPT 하면 �
 
 
 # 시스템에서 보내는 SMTP 막기
-```shell
+```
 iptables -A OUTPUT -p tcp --dport 25, 465, 587 -j DROP
 ```
 
@@ -111,7 +111,7 @@ iptables -A OUTPUT -p tcp --dport 25, 465, 587 -j DROP
 
 
 # 정책이 잘 적용되었는지 ping 으로 확인해보기
-```shell
+```
 iptables -A INPUT -s 192.268.07.23 -j DROP
 ping 192.268.07.23
 ```
@@ -121,42 +121,38 @@ ping 명렁어를 이용하여 정책이 잘 적용되었는지 확인할 수 �
 # iptables rule 저장하고 불러오기
 iptables 의 rule 을 저장하고 불러오는 것도 가능합니다. 이를 이용하여 필요에 따라 여러 버전의 설정들을 해놓고 원하는 설정을 적용할 수 있는 것이죠. 먼저 저장하는 방법입니다. 
 
-```shell
+```
 sudo iptables-save > filename.txt
 ```
 
 이때 filename 은 원하는 파일명을 지정해주면 됩니다. 다음은 저장해 높은 설정 파일을 불러오는 방법입니다.
 
-```shell
+```
 sudo iptables-restore > filename.txt
 ```
 
 매번 시스템 부팅시, 수동으로 백업된 rule 을 불러오기 번거롭기 떄문에 이번에는 자동으로 해당 백업 파일을 불러와서 설정 파일을 적용시키는 방법을 알아보겠습니다.
 
-```shell
+```
+#root 사용자로 변경
 sudo -s
 
+#iptables 자동 복구 툴인 iptable-persistant 설치
 apt install iptables-persistent
 
+#설치가 제대로 되었는지 확인. 설치가 제대로 되었다면 해당 폴더가 생성
 ls -al /etc/iptables/
 
+#서비스 상태 확인
 systemctl status netfilter-persistent
 systemctl is-enabled netfilter-persistent
 
+#테스트를 위한 룰 추가
 iptables -A INPUT -s 192.268.07.23 -j DROP
 
+#리부팅 후 해당 룰이 저장되었는지 확인
 iptables-save | grep 192.268.07.23
 ```
-
-각각의 단계에 대한 설명은 다음과 같다.
-
-- sudo -s : root 사용자로 변경
-- apt install iptables-persistent : iptables 자동 복구 툴인 iptable-persistant 설치
-- ls -al /etc/iptables/ : 설치가 제대로 되었는지 확인. 설치가 제대로 되었다면 해당 폴더가 생성
-- systemctl status netfilter-persistent : 서비스 상태 확인
-- systemctl is-enabled netfilter-persistent
-- iptables -A INPUT -s 192.268.07.23 -j DROP : 테스트를 위한 룰 추가
-- iptables-save | grep 192.268.07.23 : 리부팅 후 해당 룰이 저장되었는지 확인
 
 
 ## 마무리
