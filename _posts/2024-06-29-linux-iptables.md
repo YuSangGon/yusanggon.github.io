@@ -41,7 +41,6 @@ iptables 동작 방식을 이해하기 위해서는 당연히 iptables 이 사�
 
 각각에 대해서 알아보겠습니다.
 
-<br>
 
 # Tables 
 Tables 는 규칙들을 정의한 그룹입니다. ( 저는 이렇게 이해했는데, 더 좋은 해석이 있다면 알려주세요!! ) Iptables 는 table 을 5개 가지고 있고 이 5개는 3개의 main 과 2개의 sub 로 나뉘게 됩니다. main, sub 라는 말 그대로, 3개의 main table 이 주요 기능을 가지고 있고 sub 는 보조 기능을 가지고 통제를 합니다. 먼저 3가지 main table 부터 알아보겠습니다.
@@ -54,7 +53,6 @@ Tables 는 규칙들을 정의한 그룹입니다. ( 저는 이렇게 이해했�
 - RAW table : 해당 테이블은 connection tracking 에 사용되는 테이블입니다. packet 을 mark 하고 어떤 connetion or session 의 packet 인지를 파악할 수 가 있습니다.
 - Security table : 보안 테이블은 패킷에 내부 SELinux 보안 콘텐츠 마크를 전송하는 데 사용되며, 이는 SELinux 또는 SELinux 보안 컨텍스트를 해석할 수 있는 다른 시스템이 이러한 패킷을 처리하는 방식에 영향을 미칩니다.
 
-<br>
 
 # Chains
 Chains 는 이름에서 알 수 있듯이 packet 이 지나는 경로(흐름) 의 특정 지점에 규칙들의 연결을 말합니다. Iptables 는 그 특정 지점이 어떤 위치에 있냐에 따라 다음의 5개의 chain 으로 구분합니다. 
@@ -81,7 +79,6 @@ Chains 는 이름에서 알 수 있듯이 packet 이 지나는 경로(흐름) �
 
 위의 제한에 따라 연결된 Table 들은 해당 Chain 내에서 순서에 따라 자신이 가지고 있는 규칙을 packet 에 매칭해보고 일치하면 적용시키는 것이죠.
 
-<br>
 
 # Rules
 Table 은 규칙(Rule)들의 그룹이라고 하였는데 그 규칙이 바로 사용자가 네트워크 트랙픽을 관리하기 위해서 정의하는 명령이 입니다. packet 이 들어오면 각각의 chain 에서 연결된 table 을 순차적으로 돌면서 테이블에 정의된 규칙에 매칭이 되면 action 을 수행하고 매칭이 안되면 다음 rule 또는 table 로 넘어가게 됩니다. 이러한 Rule 은 두개의 component 를 가지고 있습니다.
